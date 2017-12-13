@@ -1,18 +1,12 @@
 <?php
 get_header();
 
+
 ?>
 
     <div id="main-content">
     	<div class="main-content-region">
 			<div class="front-page-column">
-				<div class="flyer-image-container">
-					<a href="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and Announcements-3X3-FINAL.png">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and Announcements-3X3-FINAL.png" alt="rotary flyer screenshot"/>
-					</a>
-				</div>
-			</div><!--
-			--><div class="front-page-column">
 				<div class="front-page-copy-region">
 					<h1> Welcome to Rotary News Wheel </h1>
 					<p> Share an announcement or ad with your Rotary community. Ads are displayed during Thursday Rotary meetings and on our website. Posting an ad is as easy as posting to Facebook or Twitter. </p>
@@ -23,18 +17,58 @@ get_header();
 							<ul>
 								<li> Headline and text </li>
 								<li> Headline, text and image/logo</li>
-								<li> Image file as the entire ad (2.25 x 2.25)</li>
+								<li> Image file as the entire ad (2.25" x 2.25")</li>
 							</ul>
 						</li>
 						<li> Preview and approve</li>
 					</ol>
 					<p>
-						Your Rotary account will be charged $5 per ad post. You may place up to 9 ads at one time. First come, first served; limit of 9 ads per week!
+						Your Rotary account will be charged $10 per ad post. You may place up to 9 ads at one time. First come, first served; limit of 9 ads per week!
 					</p>
 				</div>
-				<a class="steps-button" href="<?php echo wp_login_url(); ?>">
-					Log in
-				</a>
+				<?php
+
+				if(!is_user_logged_in()){
+
+				?>
+					<a class="steps-button" href="<?php echo wp_login_url(); ?>">
+						Login
+					</a>
+
+				<?php
+				}
+				else{
+					$user = wp_get_current_user();
+					//Send Rotary Users to the PDF creation screen
+                    if(isset( $user->roles ) && is_array( $user->roles ) && in_array( 'Rotary User', $user->roles )){
+                    	?>
+                        <a class="steps-button" href="<?php echo VENDI_ROTARY_PDF_CREATION; ?>">
+							Create An Ad
+						</a>
+						<a class="steps-button" href="<?php echo wp_logout_url(); ?>">
+							Log Out
+						</a>
+						<?php
+                    }
+					else{
+						?>
+                        <a class="steps-button" href="<?php echo VENDI_ROTARY_ADMIN_DASHBOARD; ?>">
+							Manage Fliers
+						</a>
+						<a class="steps-button" href="<?php echo wp_logout_url(); ?>">
+							Log Out
+						</a>
+						<?php
+					}
+				}
+				?>
+			</div><!--
+			--><div class="front-page-column">
+				<div class="flyer-image-container">
+					<a href="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and Announcements-3X3-FINAL.png">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and-Announcements-3X3-FINAL-thumb.png" alt="rotary flier screenshot"/>
+					</a>
+				</div>
 			</div>
         </div>
 	</div><!-- #main-content -->

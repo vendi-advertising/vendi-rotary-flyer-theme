@@ -115,37 +115,4 @@ add_action(
             }
         );
 
-add_action(
-            'login_enqueue_scripts',
-            function()
-             {
-                ?>
-                <style type="text/css">
-                    #login h1 a, .login h1 a {
-                        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary_ads_login_page_image_transparent.png);
-                        height:169px;
-                        width:240px;
-                        background-size: 240px 169px ;
-                        background-repeat: no-repeat;
-                        padding-bottom: 30px;
-                    }
-                </style>
-                <?php
-            }
-        );
 
-add_filter(
-            'login_headerurl',
-            function()
-            {
-                return home_url();
-            }
-        );
-
-add_filter(
-            'login_headertitle',
-            function()
-            {
-                return 'Rotary News Wheel';
-            }
-        );
