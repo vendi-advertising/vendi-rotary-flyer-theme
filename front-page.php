@@ -65,8 +65,8 @@ get_header();
 			</div><!--
 			--><div class="front-page-column">
 				<div class="flyer-image-container">
-					<a href="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and Announcements-3X3-FINAL.png">
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and-Announcements-3X3-FINAL-thumb.png" alt="rotary flier screenshot"/>
+					<a href="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and-Announcements-newest.png">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/Rotary-Ads-and-Announcements-newest-thumb.png" alt="rotary flier screenshot"/>
 					</a>
 				</div>
 			</div>
